@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Living Photography | Phil Seaton</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script language="javascript"><!-- 
+// This page's only job is to get the user's screen resolution, find the next-largest size of image
+// (amongst pre-selected S,M,L,XL sizes), and then send that resolution to the main page for image loading
+var request_size = 1;
+if (screen.width > 854) {request_size = 2;}
+if (screen.width > 1366) {request_size = 3;}
+if (screen.width > 1712) {request_size = 4;}
+
+if (screen.height > 480 && request_size < 2) {request_size = 2;}
+if (screen.height > 768 && request_size < 3) {request_size = 3;}
+if (screen.height > 963 && request_size < 4) {request_size = 4;}
+
+var dims = new Array();
+dims[1] = [854,480]
+dims[2] = [1366,768]
+dims[3] = [1712,963]
+dims[4] = [1920,1080]
+
+//--> 
+</script> 
+<style>
+/* splash animation styles */
+#loadingbox {
+	position: absolute;
+	left: -150px;
+	top: -100px;
+	width: 300px;
+	height: 200px;
+	border-radius: 20px;
+	background-color:#FFF;
+	text-align:center;
+	
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+	font-weight:bold;
+	color:#333;
+}
+</style>
+</head>
+
+<body style="background-color:#EFEFEF;overflow:hidden;">
+
+<form id="sendsize" method="post" action="main.php" target="_blank">
+<input type="hidden" name="width" id="width" value="854"/>
+<input type="hidden" name="height" id="height" value="480"/>
+<input type="submit"   value="S" />
+</form>
+<form id="sendsize2" method="post" action="main.php" target="_blank">
+<input type="hidden" name="width" id="width" value="1366"/>
+<input type="hidden" name="height" id="height" value="768"/>
+<input type="submit"   value="M" />
+</form>
+<form id="sendsize3" method="post" action="main.php" target="_blank">
+<input type="hidden" name="width" id="width" value="1712"/>
+<input type="hidden" name="height" id="height" value="963"/>
+<input type="submit"  value="L" />
+</form>
+<form id="sendsize4" method="post" action="main.php" target="_blank">
+<input type="hidden" name="width" id="width" value="1920"/>
+<input type="hidden" name="height" id="height" value="1080"/>
+<input type="submit" value="XL" />
+</form>
+
+
+
+</body>
+</html>

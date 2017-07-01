@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<LINK REL="shortcut icon" HREF="livingphoto.ico">
+<title>Living Photography | Phil Seaton</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script language="javascript"><!-- 
+// This page's only job is to get the user's screen resolution, find the next-largest size of image
+// (amongst pre-selected S,M,L,XL sizes), and then send that resolution to the main page for image loading
+var request_size = 1;
+if (screen.width > 854) {request_size = 2;}
+if (screen.width > 1366) {request_size = 3;}
+if (screen.width > 1712) {request_size = 4;}
+
+if (screen.height > 480 && request_size < 2) {request_size = 2;}
+if (screen.height > 768 && request_size < 3) {request_size = 3;}
+if (screen.height > 963 && request_size < 4) {request_size = 4;}
+
+var dims = new Array();
+dims[1] = [854,480]
+dims[2] = [1366,768]
+dims[3] = [1712,963]
+dims[4] = [1920,1080]
+
+$(document).ready(function(){
+	$('#width').val(dims[request_size][0]);
+	$('#height').val(dims[request_size][1]);
+	$('form#sendsize').submit();
+});
+//--> 
+</script> 
+<style>
+/* splash animation styles */
+#loadingbox {
+	position: absolute;
+	left: -150px;
+	top: -100px;
+	width: 300px;
+	height: 200px;
+	border-radius: 20px;
+	background-color:#FFF;
+	text-align:center;
+	
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:11px;
+	font-weight:bold;
+	color:#333;
+}
+</style>
+
+<!--BEGIN GOOGLE ANALYTICS CODE-->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-29165519-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<!--END GOOGLE ANALYTICS CODE-->
+
+</head>
+
+<body style="background-color:#EFEFEF;overflow:hidden;">
+
+<form id="sendsize" method="post" action="main.php" target="MainPage">
+<input type="hidden" name="width" id="width" value=""/>
+<input type="hidden" name="height" id="height" value=""/>
+</form>
+
+<iframe name="MainPage" width="100%" height="100%" style="position:absolute;top:0px;left:0px;border:0px;">
+
+</iframe>
+<noscript>
+    <div id="load-container" style="position:absolute;left:50%;top:50%;">
+        <div id="loadingbox">
+                <img src="images2012/logo.png" id="logoImage" style="margin-top:20px;" /><Br /><Br />
+                LivingPhoto is great,<br /><br /><span style="font-weight:normal;"> but you'll need JavaScript to see it</span>
+        </div>
+        
+    </div>
+</noscript>
+
+
+</body>
+</html>
