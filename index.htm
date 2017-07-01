@@ -26,7 +26,7 @@ dims[4] = [1920,1080]
 $(document).ready(function(){
 	$('#width').val(dims[request_size][0]);
 	$('#height').val(dims[request_size][1]);
-	$('form#sendsize').submit();
+	$('#MainPage').attr("src", "main-"+request_size+".html");
 });
 //--> 
 </script> 
@@ -67,12 +67,7 @@ $(document).ready(function(){
 
 <body style="background-color:#EFEFEF;overflow:hidden;">
 
-<form id="sendsize" method="post" action="main.php" target="MainPage">
-<input type="hidden" name="width" id="width" value=""/>
-<input type="hidden" name="height" id="height" value=""/>
-</form>
-
-<iframe name="MainPage" width="100%" height="100%" style="position:absolute;top:0px;left:0px;border:0px;">
+<iframe name="MainPage" id="MainPage" width="100%" height="100%" style="position:absolute;top:0px;left:0px;border:0px;">
 
 </iframe>
 <noscript>
